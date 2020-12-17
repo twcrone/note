@@ -14,4 +14,10 @@ docker image rm -f twcrone/note
 
 ## K8s
 
+```bash
+kubectl apply -f deployment.yml
+
+kubectl port-forward svc/note 8080:8080
+```
+
 

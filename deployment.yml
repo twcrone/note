@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: note
+  name: note
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: note
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: note
+    spec:
+      containers:
+      - image: twcrone/note
+        name: note
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: note
+  name: note
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: note
+  type: ClusterIP
+status:
+  loadBalancer: {}
