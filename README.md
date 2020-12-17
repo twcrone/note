@@ -18,6 +18,12 @@ docker image rm -f twcrone/note
 kubectl apply -f deployment.yml
 
 kubectl port-forward svc/note 8080:8080
+
+curl localhost:8080/actuator/health
+```
+
+```
+{"status":"UP"}
 ```
 
 
